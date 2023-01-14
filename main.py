@@ -1,21 +1,22 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import xlsxwriter
-import sys
+import readchar
 
 
 def main():
-    if len(sys.argv) > 1:
-        points = sys.argv[1]
+    number_of_points = input("Enter number of points you want to generate: ")
 
-        try:
-            points = int(points)
-            brown_moves(points)
-        except:
-            print("Given input is not a number!")
-            brown_moves()
+    try:
+        points = int(number_of_points)
+    except:
+        print("Given input is not a number!")
+        print("Generating default 10k points")
+        points = 10000
 
-    brown_moves()
+    brown_moves(points)
+    print("Press Any Key To Exit...")
+    k = readchar.readchar()
 
 
 def brown_moves(points: int = 10000):
